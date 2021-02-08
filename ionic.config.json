@@ -1,0 +1,7 @@
+{
+  "name": "cashier-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
