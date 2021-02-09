@@ -1,20 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Cashier
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-grid class="justify-center">
+      <ion-text>Barcode Scanner Cashier</ion-text>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card>
+    <img src="assets/barcode.jpeg" />
+    <ion-card-content>
+      <ion-text>Veuillez scanner le QR Code du client.</ion-text>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <ion-button color="success" expand="full" (click)="scan()">Scanner</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-item *ngIf="order">
+    <ion-label position="stacked">Commande</ion-label>
+    <ion-input [value]="order.id" readonly></ion-input>
+    <ion-input [value]="getRepasFromOrder()" readonly></ion-input>
+    <ion-input [value]="getClientFromOrder()" readonly></ion-input>
+  </ion-item>
+
+  <ion-button color="success" expand="full" (click)="confirm()">Confirmer</ion-button>
 </ion-content>
