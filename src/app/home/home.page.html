@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
-      Cashier
+      Caissier
     </ion-title>
   </ion-toolbar>
   <ion-toolbar color="primary">
@@ -13,19 +13,31 @@
 
 <ion-content>
   <ion-card>
-    <img src="assets/barcode.jpeg" />
+    <img src="assets/sandwich.jpg" />
     <ion-card-content>
-      <ion-text>Veuillez scanner le QR Code du client.</ion-text>
+      <ion-text>
+        <h3>Veuillez scanner le QR Code du client.</h3>
+        <h4>Les informations concernant la commande s'afficheront plus bas</h4>
+      </ion-text>
 
-      <ion-button color="success" expand="full" (click)="scan()">Scanner</ion-button>
+      <ion-button color="primary" expand="full" (click)="scan()">Scanner</ion-button>
     </ion-card-content>
   </ion-card>
-  <ion-item *ngIf="order">
-    <ion-label position="stacked">Commande</ion-label>
-    <ion-input [value]="order.id" readonly></ion-input>
-    <ion-input [value]="getRepasFromOrder()" readonly></ion-input>
-    <ion-input [value]="getClientFromOrder()" readonly></ion-input>
-  </ion-item>
 
-  <ion-button color="success" expand="full" (click)="confirm()">Confirmer</ion-button>
+  <div *ngIf = "order">
+    <div class = "orderId">
+      <h2>Commande N#{{order.id}}</h2>
+    </div>
+
+    <div class = "orderClient">
+      <h3>Balance : {{order.client.balance}}€</h3>
+    </div>
+
+    <div class = "orderBtn">
+      <ion-button color="success" expand="full" (click)="confirm()">Confirmer</ion-button>
+    </div>
+  </div>
+
+
+  
 </ion-content>
