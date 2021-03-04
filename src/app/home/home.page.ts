@@ -10,7 +10,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage {
   data: any;
-  order: Commande;
+  order: any;
 
   constructor(private barcodeScanner: BarcodeScanner, private toast: ToastController) { }
 
@@ -42,7 +42,7 @@ export class HomePage {
 
   confirm()
   {
-    this.order.client.balance -= this.order.repas.prix;
+    this.order.client.balance -= 1;
     this.presentToast();
   }
 
